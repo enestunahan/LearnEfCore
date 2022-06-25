@@ -1,5 +1,7 @@
 ﻿//using System.ComponentModel.DataAnnotations;
 
+using System;
+
 namespace LearnEfCore.Models
 {
     public class Book
@@ -8,5 +10,6 @@ namespace LearnEfCore.Models
         // bunun yerine fluent api kullanacağız
         public int Id { get; set; } 
         public string Title { get; set; }   
+        public DateTime CreatedDate { get; set; }
     }
 }

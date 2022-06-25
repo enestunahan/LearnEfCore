@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using LearnEfCore.Configuration;
+using LearnEfCore.Seeds;
+using Microsoft.EntityFrameworkCore;
 
 namespace LearnEfCore.Models
 {
@@ -11,8 +13,8 @@ namespace LearnEfCore.Models
         public DbSet<Book> Books { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Book>().HasKey(e => e.Id);
-            modelBuilder.Entity<Book>().Property(e => e.Title).IsRequired();    
+            modelBuilder.ApplyConfiguration(new BookConfiguration());
+            modelBuilder.ApplyConfiguration(new BookSeedData());
             base.OnModelCreating(modelBuilder);
         }
     }
