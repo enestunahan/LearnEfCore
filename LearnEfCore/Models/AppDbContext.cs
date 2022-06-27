@@ -11,8 +11,9 @@ namespace LearnEfCore.Models
 
         }
         public DbSet<Book> Books { get; set; }
-        public DbSet<Category> Categories { get; set; } 
-        public DbSet<BookDetail> BooksDetail { get; set; }  
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<BookDetail> BooksDetail { get; set; }
+        public DbSet<Author> Authors { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new BookConfiguration());
@@ -21,6 +22,8 @@ namespace LearnEfCore.Models
             modelBuilder.ApplyConfiguration(new CategoryConfiguration());
             modelBuilder.ApplyConfiguration(new BookDetailSeed());
             modelBuilder.ApplyConfiguration(new BookDetailConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthorConfiguration());
+            modelBuilder.ApplyConfiguration(new AuthorSeed());
             
             base.OnModelCreating(modelBuilder);
         }
