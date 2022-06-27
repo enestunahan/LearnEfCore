@@ -16,5 +16,6 @@ namespace LearnEfCore.Models
         public int? CategoryId { get; set; }
         // simple navigation property
         public Category Category { get; set; }
+        public BookDetail BookDetail { get; set; }  
     }
 }
