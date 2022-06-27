@@ -12,5 +12,9 @@ namespace LearnEfCore.Models
         public string Title { get; set; }
         public DateTime CreatedDate { get; set; }
         public bool IsDeleted { get; set; }
+        // foreign key
+        public int? CategoryId { get; set; }
+        // simple navigation property
+        public Category Category { get; set; }
     }
 }

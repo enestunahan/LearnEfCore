@@ -23,6 +23,12 @@ namespace LearnEfCore.Configuration
 
             builder.Property(x=>x.IsDeleted)
                 .HasDefaultValue(false);
+
+            builder.HasOne(x=>x.Category)
+                .WithMany(a=>a.Books)
+                .HasForeignKey(x=>x.CategoryId)
+                .OnDelete(DeleteBehavior.Cascade);
+            //Eğer ilişkili ana satır (parent row) silinirse yada güncellenirse bağlı olduğu alt satır (child row) da silinir yada güncellenir.
         }
     }
 }
