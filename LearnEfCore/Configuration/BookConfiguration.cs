@@ -17,6 +17,12 @@ namespace LearnEfCore.Configuration
 
             builder.Property(x => x.CreatedDate).
                 HasDefaultValue(DateTime.Now);
+
+            //builder.Property(x => x.CreatedDate)
+            //    .HasDefaultValueSql("GETDATE()"); Bu şekilde de kullanılabilir formatı farklı sadece.
+
+            builder.Property(x=>x.IsDeleted)
+                .HasDefaultValue(false);
         }
     }
 }
